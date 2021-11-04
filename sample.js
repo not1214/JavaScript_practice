@@ -1,10 +1,19 @@
 let user_hand = prompt("じゃんけんの手をグー、チョキ、パーから選んでください。");
 
+while ((user_hand != "グー") && (user_hand != "チョキ") && (user_hand != "パー") && (user_hand != null)){
+  alert("グー、チョキ、パーのいずれかを入力してください。");
+  user_hand = prompt("じゃんけんの手をグー、チョキ、パーから選んでください。");
+}
+
 let js_hand = getJShand();
 
 let judge = winLose(user_hand, js_hand);
 
-alert("あなたの選んだ手は" + user_hand + "です。JavaScriptの選んだ手は" + js_hand + "です。結果は" + judge + "です。");
+if (user_hand != null){
+  alert("あなたの選んだ手は" + user_hand + "です。JavaScriptの選んだ手は" + js_hand + "です。結果は" + judge + "です。");
+} else{
+  alert("またチャレンジしてね")
+}
 
 function getJShand(){
   let js_hand_num = Math.floor(Math.random() * 3 );
@@ -24,8 +33,8 @@ function getJShand(){
 function winLose(user, js){
   let winLoseStr;
 
-  if(user =="グー"){
-    if(js == "グー"){
+  if (user =="グー"){
+    if (js == "グー"){
       winLoseStr = "あいこ";
     } else if (js == "チョキ"){
       winLoseStr = "勝ち";
@@ -36,7 +45,7 @@ function winLose(user, js){
     if (js == "グー"){
       winLoseStr = "負け";
     } else if (js == "チョキ"){
-      winLoseStr == "あいこ";
+      winLoseStr = "あいこ";
     } else if (js == "パー"){
       winLoseStr = "勝ち";
     }
